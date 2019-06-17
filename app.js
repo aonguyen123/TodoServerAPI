@@ -8,6 +8,7 @@ const config = require("./config/database");
 const logInRouter = require('./api/route/loginRouter');
 const checkRouter = require('./api/route/checkRouter');
 const todoRouter = require('./api/route/todoRouter');
+const cors = require('cors');
 //const loginFacebookRouter = require('./api/route/loginFacebookRouter');
 //const configPassport = require('./config/passport');
 
@@ -20,6 +21,7 @@ app.listen(port, function () {
     console.log('Server listening port ' + port);
 });
 
+app.use(cors());
 app.use("/assets", express.static(__dirname + "/public")); //cung cap tai nguyen tinh cho nguoi dung
 app.use(bodyParser.json()); // du lieu muon doc tu nguoi dung gui len la json
 app.use(bodyParser.urlencoded({ extended: true })) //kieu du lieu mong muon la tuy y
